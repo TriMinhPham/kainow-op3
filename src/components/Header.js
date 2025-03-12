@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { Nav } from './Nav';
 import { useWebContent } from './DataContext';
+import { LoadingSpinner } from './LoadingSpinner';
 
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--gray-darkest);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 `;
 
 const LogoContainer = styled.div`
@@ -19,40 +20,43 @@ const LogoContainer = styled.div`
 
 const Logo = styled.div`
   font-size: 1.8rem;
-  font-weight: bold;
-  color: #333;
+  font-weight: 700;
+  color: var(--gray-light);
   
   span {
-    color: #1e88e5;
+    color: var(--gold);
   }
 `;
 
 const Tagline = styled.div`
   font-size: 0.8rem;
-  color: #777;
+  color: var(--gray-medium);
   margin-top: 0.2rem;
+  letter-spacing: 0.5px;
 `;
 
 const WalletButton = styled.button`
-  background-color: #1e88e5;
-  color: white;
+  background-color: var(--gold);
+  color: var(--gray-darkest);
   border: none;
   border-radius: 4px;
   padding: 0.75rem 1.5rem;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background-color: #1976d2;
+    background-color: var(--gold-dark);
+    transform: translateY(-2px);
   }
 `;
 
 export const Header = () => {
   const { webContent, loading, error } = useWebContent();
   
-  if (loading) return <HeaderContainer><div>Loading...</div></HeaderContainer>;
+  if (loading) return <HeaderContainer><LoadingSpinner text="Loading header..." /></HeaderContainer>;
   if (error) return <HeaderContainer><div>Error loading content</div></HeaderContainer>;
   if (!webContent) return <HeaderContainer><div>No content available</div></HeaderContainer>;
   

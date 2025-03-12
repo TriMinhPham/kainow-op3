@@ -1,12 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useWebContent } from './DataContext';
+import { LoadingSpinner } from './LoadingSpinner';
 
 const FooterContainer = styled.footer`
-  background-color: #333;
-  color: #fff;
-  padding: 2rem;
+  background-color: var(--gray-darkest);
+  color: var(--gray-light);
+  padding: 3.5rem 2rem 2.5rem;
   margin-top: auto;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--green-dark), var(--red));
+  }
 `;
 
 const FooterContent = styled.div`
@@ -15,7 +27,7 @@ const FooterContent = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 3rem;
 `;
 
 const FooterColumn = styled.div`
@@ -24,51 +36,68 @@ const FooterColumn = styled.div`
 
 const FooterTitle = styled.h4`
   font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #1e88e5;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+  font-weight: 600;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--gold);
+  }
 `;
 
 const FooterLink = styled.a`
   display: block;
-  color: #ccc;
+  color: var(--gray-medium);
   text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s;
+  margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  padding: 0.2rem 0;
   
   &:hover {
-    color: #1e88e5;
+    color: var(--gold);
+    transform: translateX(3px);
   }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 0.5rem;
 `;
 
 const SocialLink = styled.a`
-  color: #ccc;
+  color: var(--gray-medium);
   font-size: 1rem;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
   
   &:hover {
-    color: #1e88e5;
+    color: var(--gold);
+    transform: translateY(-3px);
   }
 `;
 
 const FooterBottom = styled.div`
   text-align: center;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #444;
-  color: #999;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--gray-medium);
   font-size: 0.9rem;
 `;
 
 export const Footer = () => {
   const { webContent, loading, error } = useWebContent();
   
-  if (loading) return <FooterContainer><div>Loading...</div></FooterContainer>;
+  if (loading) return <FooterContainer><LoadingSpinner text="Loading footer..." /></FooterContainer>;
   if (error) return <FooterContainer><div>Error loading content</div></FooterContainer>;
   if (!webContent) return <FooterContainer><div>No content available</div></FooterContainer>;
   
