@@ -7,6 +7,7 @@ import { RewardsSection } from './components/RewardsSection';
 import { BoosterSection } from './components/BoosterSection';
 import { Footer } from './components/Footer';
 import { DataProvider } from './components/DataContext';
+import { RippleBackground } from './components/RippleBackground';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -23,6 +24,7 @@ function App() {
   return (
     <DataProvider>
       <AppContainer>
+        <RippleBackground />
         <Header />
         <MainContent>
           <IntroSection />
