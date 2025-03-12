@@ -1,0 +1,54 @@
+{
+  "header": {
+    "title": "Krypto AI",
+    "tagline": "Revolutionizing Blockchain and Decentralized AI"
+  },
+  "intro": {
+    "heading": "Introducing Krypto AI",
+    "description": "Krypto AI marks a significant advancement in the integration of artificial intelligence and blockchain technology. Fully embedded within the dynamic KAI ecosystem, it pioneers on-chain AI computations and transparent, immutable recording of every AI decision.",
+    "features": [
+      "Seamless on-chain AI integration with KAI",
+      "Proof of Inference backbone for secure computations",
+      "Autonomous AI agents (AIAI) automating complex tasks",
+      "Scalable, decentralized execution for Web3 applications"
+    ]
+  },
+  "stakingNodes": [
+    {
+      "id": 1,
+      "name": "Krypto AI NFT Node",
+      "description": "Join the revolutionary AI-powered blockchain infrastructure. With a strictly limited supply, each node processes AI inferences on-chain, supports staking up to 10 million KAI tokens, and earns passive rewards while ensuring operational sustainability.",
+      "apy": "Variable",
+      "minStake": "Up to 10M KAI"
+    }
+  ],
+  "boosterChip": {
+    "name": "Upcoming AI Accelerator",
+    "price": "TBA",
+    "description": "Future developments include expanded GPU inference capabilities, advanced verification frameworks, and AI-governed smart contracts designed to boost your AI-powered applications.",
+    "benefits": [
+      "Enhanced computational power",
+      "Faster AI inference speeds",
+      "Robust security and advanced verification",
+      "Future-proof innovations for decentralized AI"
+    ]
+  },
+  "rewards": {
+    "claimDescription": "Earn passive rewards by participating in AI computations through your NFT node. Rewards are calculated in real-time based on your active contribution within the ecosystem.",
+    "unstakingPeriod": "Subject to a monthly operational fee for continuous reward access"
+  },
+  "footer": {
+    "links": [
+      { "name": "Documentation", "url": "#/docs" },
+      { "name": "Support", "url": "#/support" },
+      { "name": "Privacy Policy", "url": "#/privacy" },
+      { "name": "Terms of Service", "url": "#/terms" }
+    ],
+    "socialMedia": [
+      { "name": "Twitter", "url": "#" },
+      { "name": "Telegram", "url": "#" },
+      { "name": "Discord", "url": "#" }
+    ],
+    "copyright": "© 2025 Krypto AI. All rights reserved."
+  }
+}
