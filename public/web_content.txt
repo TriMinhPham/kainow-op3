@@ -20,6 +20,13 @@
       "description": "Join the revolutionary AI-powered blockchain infrastructure. With a strictly limited supply, each node processes AI inferences on-chain, supports staking up to 10 million KAI tokens, and earns passive rewards while ensuring operational sustainability.",
       "apy": "Variable",
       "minStake": "Up to 10M KAI"
+    },
+    {
+      "id": 2,
+      "name": "Krypto AI Validator Node",
+      "description": "Become a network validator and help secure the Krypto AI ecosystem. Validator nodes participate in consensus, validate AI computations, and earn higher rewards for their crucial role in maintaining network integrity.",
+      "apy": "Variable + Bonus",
+      "minStake": "Up to 20M KAI"
     }
   ],
   "boosterChip": {
@@ -34,8 +41,24 @@
     ]
   },
   "rewards": {
-    "claimDescription": "Earn passive rewards by participating in AI computations through your NFT node. Rewards are calculated in real-time based on your active contribution within the ecosystem.",
-    "unstakingPeriod": "Subject to a monthly operational fee for continuous reward access"
+    "claimDescription": "Earn dual rewards by participating in AI computations through your NFT node. Rewards are calculated in real-time based on your active contribution within the ecosystem.",
+    "unstakingPeriod": "Subject to a monthly operational fee for continuous reward access",
+    "rewardTypes": [
+      {
+        "id": 1,
+        "token": "KAI",
+        "amount": "1,234.56",
+        "boosterBonus": "69%",
+        "description": "Native token rewards from staking and network participation"
+      },
+      {
+        "id": 2,
+        "token": "AIAI",
+        "amount": "420.69",
+        "boosterBonus": "69%",
+        "description": "Governance token rewards from AI computation contributions"
+      }
+    ]
   },
   "footer": {
     "links": [
