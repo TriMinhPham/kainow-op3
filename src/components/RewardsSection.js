@@ -5,20 +5,26 @@ import { LoadingSpinner } from './LoadingSpinner';
 
 const RewardsSectionContainer = styled.section`
   padding: 5rem 2rem;
-  background-color: var(--beige);
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(245, 245, 245, 0.7)), url('/images/background/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  z-index: 1;
 `;
 
 const SectionTitle = styled.h2`
   font-size: 2.2rem;
-  color: var(--gray-darkest);
+  color: #000000;
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
   
   &::after {
     content: '';
@@ -28,12 +34,12 @@ const SectionTitle = styled.h2`
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--red);
+    background-color: #000000;
   }
 `;
 
 const RewardsCard = styled.div`
-  background: #ffffff;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
   border-radius: 12px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   padding: 2.5rem;
@@ -41,9 +47,10 @@ const RewardsCard = styled.div`
   max-width: 550px;
   text-align: center;
   position: relative;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   overflow: hidden;
   margin-bottom: 2rem;
+  backdrop-filter: blur(4px);
   
   &::before {
     content: '';
@@ -52,7 +59,7 @@ const RewardsCard = styled.div`
     left: 0;
     width: 100%;
     height: 6px;
-    background: ${props => props.variant === 'kai' ? 'var(--gold)' : 'var(--red)'};
+    background: #000000;
   }
 `;
 
@@ -66,10 +73,11 @@ const RewardsContainer = styled.div`
 `;
 
 const RewardsDescription = styled.p`
-  color: var(--gray-dark);
+  color: #333333;
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 `;
 
 const RewardsInfo = styled.div`
@@ -77,22 +85,24 @@ const RewardsInfo = styled.div`
 `;
 
 const RewardsLabel = styled.p`
-  color: var(--text-light);
+  color: #333333;
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   font-weight: 500;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 `;
 
 const RewardsValue = styled.h3`
-  color: var(--red);
+  color: #000000;
   font-size: 3rem;
   margin-bottom: 2rem;
   font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 `;
 
 const TokenLabel = styled.span`
   font-size: 1.2rem;
-  color: ${props => props.variant === 'kai' ? 'var(--gold-dark)' : 'var(--red-dark)'};
+  color: #000000;
   font-weight: 700;
 `;
 
@@ -100,26 +110,27 @@ const BoosterTag = styled.div`
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  background: linear-gradient(135deg, #000000, #333333);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
 `;
 
 const UnstakingInfo = styled.div`
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #e0e0e0;
   font-size: 0.95rem;
-  color: var(--text-light);
+  color: #666666;
   font-weight: 500;
 `;
 
 const ClaimButton = styled.button`
-  background-color: ${props => props.variant === 'kai' ? 'var(--gold)' : 'var(--red)'};
+  background: linear-gradient(145deg, #000000, #333333);
   color: white;
   border: none;
   border-radius: 6px;
@@ -129,20 +140,38 @@ const ClaimButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  box-shadow: ${props => props.variant === 'kai' 
-    ? '0 4px 10px rgba(212, 180, 131, 0.2)'
-    : '0 4px 10px rgba(194, 78, 74, 0.2)'};
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
 
   &:hover {
-    background-color: ${props => props.variant === 'kai' ? 'var(--gold-dark)' : 'var(--red-dark)'};
     transform: translateY(-3px);
-    box-shadow: ${props => props.variant === 'kai'
-      ? '0 6px 15px rgba(212, 180, 131, 0.3)'
-      : '0 6px 15px rgba(194, 78, 74, 0.3)'};
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    
+    &::before {
+      transform: translateX(100%);
+    }
   }
   
   &:disabled {
-    background-color: var(--gray-medium);
+    background: #cccccc;
     cursor: not-allowed;
     transform: translateY(0);
     box-shadow: none;

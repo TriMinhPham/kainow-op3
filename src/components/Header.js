@@ -15,17 +15,13 @@ const HeaderContainer = styled.header`
 
 const LogoContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 `;
 
-const Logo = styled.div`
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--gray-light);
-  
-  span {
-    color: var(--gold);
-  }
+const Logo = styled.img`
+  height: 40px;
+  width: auto;
 `;
 
 const Tagline = styled.div`
@@ -65,8 +61,13 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <LogoContainer>
-        <Logo>{header.title.split('.')[0]}<span>.{header.title.split('.')[1]}</span></Logo>
-        <Tagline>{header.tagline}</Tagline>
+        <Logo src="/images/logo/logo.png" alt={header.title} />
+        <div>
+          <div style={{ fontSize: '1.8rem', fontWeight: '700', color: 'var(--gray-light)' }}>
+            {header.title.split('.')[0]}<span style={{ color: 'var(--gold)' }}>.{header.title.split('.')[1]}</span>
+          </div>
+          <Tagline>{header.tagline}</Tagline>
+        </div>
       </LogoContainer>
       <Nav />
       <WalletButton>Connect Wallet</WalletButton>
