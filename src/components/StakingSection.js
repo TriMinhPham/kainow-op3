@@ -43,8 +43,6 @@ const SectionTitle = styled.h2`
 const StakingNodesContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -54,11 +52,15 @@ const StakingNodeCard = styled.div`
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   padding: 2.5rem;
-  width: 360px;
+  width: 400px;
+  height: 400px;
   transition: all 0.4s ease;
   border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
   &::before {
     content: '';
@@ -67,19 +69,19 @@ const StakingNodeCard = styled.div`
     left: 0;
     width: 100%;
     height: 6px;
-    background: ${props => props.index === 0 ? 'var(--green-dark)' : 'var(--gold)'};
+    background: var(--green-dark);
   }
   
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
-    border-color: ${props => props.index === 0 ? 'var(--green)' : 'var(--gold)'};
+    border-color: var(--green);
   }
 `;
 
 const NodeTitle = styled.h3`
   font-size: 1.6rem;
-  color: ${props => props.index === 0 ? 'var(--green-dark)' : 'var(--gold-dark)'};
+  color: var(--green-dark);
   margin-bottom: 1rem;
   font-weight: 600;
 `;
@@ -117,7 +119,7 @@ const DetailValue = styled.span`
 const StakingActions = styled.div`
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: auto;
 `;
 
 const ActionButton = styled.button`
@@ -131,13 +133,13 @@ const ActionButton = styled.button`
 `;
 
 const StakeButton = styled(ActionButton)`
-  background-color: ${props => props.index === 0 ? 'var(--green-dark)' : 'var(--gold)'};
+  background-color: var(--green-dark);
   color: white;
   border: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   
   &:hover {
-    background-color: ${props => props.index === 0 ? 'var(--green)' : 'var(--gold-dark)'};
+    background-color: var(--green);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
@@ -145,11 +147,11 @@ const StakeButton = styled(ActionButton)`
 
 const UnstakeButton = styled(ActionButton)`
   background-color: transparent;
-  color: ${props => props.index === 0 ? 'var(--green-dark)' : 'var(--gold-dark)'};
-  border: 1px solid ${props => props.index === 0 ? 'var(--green-dark)' : 'var(--gold)'};
+  color: var(--green-dark);
+  border: 1px solid var(--green-dark);
   
   &:hover {
-    background-color: ${props => props.index === 0 ? 'rgba(107, 142, 102, 0.1)' : 'rgba(212, 180, 131, 0.1)'};
+    background-color: rgba(107, 142, 102, 0.1);
     transform: translateY(-2px);
   }
 `;
@@ -162,15 +164,16 @@ export const StakingSection = () => {
   if (!webContent) return <StakingSectionContainer id="stake"><div>No content available</div></StakingSectionContainer>;
   
   const { stakingNodes } = webContent;
+  const node = stakingNodes[0]; // Keep only the first node
   
   return (
     <StakingSectionContainer id="stake">
-      <SectionTitle>Staking Nodes</SectionTitle>
+      <SectionTitle>Staking</SectionTitle>
       
       <StakingNodesContainer>
-        {stakingNodes.map((node, index) => (
-          <StakingNodeCard key={node.id} index={index}>
-            <NodeTitle index={index}>{node.name}</NodeTitle>
+        <StakingNodeCard>
+          <div>
+            <NodeTitle>{node.name}</NodeTitle>
             <NodeDescription>{node.description}</NodeDescription>
             
             <StakingDetail>
@@ -192,13 +195,13 @@ export const StakingSection = () => {
               <DetailLabel>APY</DetailLabel>
               <DetailValue>{node.apy}</DetailValue>
             </StakingDetail>
-            
-            <StakingActions>
-              <StakeButton index={index}>Stake</StakeButton>
-              <UnstakeButton index={index}>Unstake</UnstakeButton>
-            </StakingActions>
-          </StakingNodeCard>
-        ))}
+          </div>
+          
+          <StakingActions>
+            <StakeButton>Stake</StakeButton>
+            <UnstakeButton>Unstake</UnstakeButton>
+          </StakingActions>
+        </StakingNodeCard>
       </StakingNodesContainer>
     </StakingSectionContainer>
   );

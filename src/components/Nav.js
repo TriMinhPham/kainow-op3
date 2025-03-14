@@ -42,6 +42,7 @@ export const Nav = () => {
       <NavLink href="#stake">Stake</NavLink>
       <NavLink href="#rewards">Claim Rewards</NavLink>
       <NavLink href="#booster">Booster Chip</NavLink>
+      <NavLink href="https://www.kardiachain.io" target="_blank" rel="noopener noreferrer">Kardiachain</NavLink>
     </NavContainer>
   );
 };
