@@ -20,7 +20,7 @@ const CenterVideo = styled.video`
   z-index: 1;
   max-width: 300px;
   min-width: 150px;
-  opacity: 0.3;
+  opacity: 0;
   transition: opacity 0.5s ease;
   cursor: pointer;
 
@@ -29,13 +29,19 @@ const CenterVideo = styled.video`
   }
 `;
 
-const RippleContainer = styled.div`
+const Logo = styled.img`
+  width: 10vw;
+  height: auto;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  z-index: 1;
+  max-width: 300px;
+  min-width: 150px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+
+  &.hidden {
+    opacity: 0;
+  }
 `;
 
 const SkipButton = styled.button`
@@ -57,6 +63,48 @@ const SkipButton = styled.button`
   }
 `;
 
+const PlayButton = styled.button`
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const SoundButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+`;
+
 const ErrorMessage = styled.div`
   color: white;
   text-align: center;
@@ -65,19 +113,19 @@ const ErrorMessage = styled.div`
 
 const LandingPage = () => {
   const videoRef = useRef(null);
-  const rippleContainerRef = useRef(null);
   const navigate = useNavigate();
   const [showSkip, setShowSkip] = useState(false);
   const [error, setError] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const sequenceTimerRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
-    const rippleContainer = rippleContainerRef.current;
+    const logo = document.querySelector('.logo');
 
     const handleVideoError = (e) => {
       console.error('Video error:', e);
+      console.error('Video error details:', video.error);
       setError('Error loading video. Please try again.');
     };
 
@@ -92,72 +140,45 @@ const LandingPage = () => {
       console.log('Video started playing');
       setIsPlaying(true);
       video.classList.add('playing');
+      if (logo) {
+        logo.classList.add('hidden');
+      }
     };
 
     const handleVideoCanPlay = () => {
       console.log('Video can play');
     };
 
-    const handleMouseEnter = () => {
-      if (!isPlaying) {
-        startSequence();
-      }
-    };
-
     const startSequence = () => {
-      // Clear any existing timers
-      if (sequenceTimerRef.current) {
-        clearTimeout(sequenceTimerRef.current);
+      console.log('Starting video sequence');
+      // Start video
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.error('Error playing video:', err);
+          setError('Could not play video. Please try again.');
+        });
       }
 
-      // Start video
-      video.play().catch(err => {
-        console.error('Error playing video:', err);
-        setError('Could not play video. Please try again.');
-      });
-
-      // Create ripple after 3 seconds
-      sequenceTimerRef.current = setTimeout(() => {
-        createRipple();
-      }, 3000);
-
-      // Navigate after 7 seconds (3s wait + 4s ripple)
-      sequenceTimerRef.current = setTimeout(() => {
+      // Navigate when video ends
+      setTimeout(() => {
         navigate('/home');
       }, 7000);
-    };
-
-    const createRipple = () => {
-      // Clear existing ripples
-      rippleContainer.innerHTML = '';
-      
-      // Create multiple ripples with different delays
-      for (let i = 0; i < 3; i++) {
-        const ripple = document.createElement('div');
-        const videoRect = video.getBoundingClientRect();
-        const rippleSize = Math.max(window.innerWidth, window.innerHeight) * 2;
-        
-        ripple.style.width = ripple.style.height = `${rippleSize}px`;
-        ripple.style.left = `${videoRect.left + videoRect.width / 2 - rippleSize / 2}px`;
-        ripple.style.top = `${videoRect.top + videoRect.height / 2 - rippleSize / 2}px`;
-        ripple.style.background = '#333333';
-        ripple.style.position = 'absolute';
-        ripple.style.borderRadius = '50%';
-        ripple.style.transform = 'scale(0)';
-        ripple.style.animation = `wave 4s ease-out ${i * 0.2}s forwards`;
-        rippleContainer.appendChild(ripple);
-      }
     };
 
     video.addEventListener('error', handleVideoError);
     video.addEventListener('loadeddata', handleVideoLoad);
     video.addEventListener('play', handleVideoPlay);
     video.addEventListener('canplay', handleVideoCanPlay);
-    video.addEventListener('mouseenter', handleMouseEnter);
 
     const skipTimer = setTimeout(() => {
       setShowSkip(true);
     }, 2000);
+
+    // Auto start the video after 1 second delay
+    const startTimer = setTimeout(() => {
+      startSequence();
+    }, 1000);
 
     video.onended = () => {
       navigate('/home');
@@ -165,16 +186,21 @@ const LandingPage = () => {
 
     return () => {
       clearTimeout(skipTimer);
-      if (sequenceTimerRef.current) {
-        clearTimeout(sequenceTimerRef.current);
-      }
+      clearTimeout(startTimer);
       video.removeEventListener('error', handleVideoError);
       video.removeEventListener('loadeddata', handleVideoLoad);
       video.removeEventListener('play', handleVideoPlay);
       video.removeEventListener('canplay', handleVideoCanPlay);
-      video.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [navigate, isPlaying]);
+  }, [navigate]);
+
+  const handleToggleSound = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = !video.muted;
+      setIsMuted(!isMuted);
+    }
+  };
 
   const handleSkip = () => {
     navigate('/home');
@@ -182,17 +208,24 @@ const LandingPage = () => {
 
   return (
     <LandingContainer>
-      <RippleContainer ref={rippleContainerRef} />
+      <Logo 
+        src="/assets/kardia-logo.jpg" 
+        alt="Kardia Logo" 
+        className="logo"
+      />
       <CenterVideo
         ref={videoRef}
-        muted
         playsInline
         loop={false}
         preload="auto"
+        muted
       >
         <source src="/assets/intro.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </CenterVideo>
+      <SoundButton onClick={handleToggleSound}>
+        {isMuted ? '🔇 Unmute' : '🔊 Mute'}
+      </SoundButton>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       {showSkip && <SkipButton onClick={handleSkip}>Skip Intro</SkipButton>}
     </LandingContainer>
