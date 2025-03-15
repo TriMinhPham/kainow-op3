@@ -5,10 +5,7 @@ import { LoadingSpinner } from './LoadingSpinner';
 
 const RewardsSectionContainer = styled.section`
   padding: 5rem 2rem;
-  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(245, 245, 245, 0.7)), url('/images/background/background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: var(--gray-light);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,7 +21,6 @@ const SectionTitle = styled.h2`
   margin-bottom: 2.5rem;
   position: relative;
   font-weight: 700;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
   
   &::after {
     content: '';
@@ -50,7 +46,6 @@ const RewardsCard = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.18);
   overflow: hidden;
   margin-bottom: 2rem;
-  backdrop-filter: blur(4px);
   
   &::before {
     content: '';
@@ -77,7 +72,6 @@ const RewardsDescription = styled.p`
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 `;
 
 const RewardsInfo = styled.div`
@@ -89,7 +83,6 @@ const RewardsLabel = styled.p`
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 `;
 
 const RewardsValue = styled.h3`
@@ -97,7 +90,6 @@ const RewardsValue = styled.h3`
   font-size: 3rem;
   margin-bottom: 2rem;
   font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 `;
 
 const TokenLabel = styled.span`
@@ -117,7 +109,6 @@ const BoosterTag = styled.div`
   font-size: 0.9rem;
   font-weight: 600;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
 `;
 
 const UnstakingInfo = styled.div`
