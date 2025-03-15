@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import PageTransition from '../common/PageTransition';
 
 const LandingContainer = styled.div`
   margin: 0;
@@ -118,6 +119,7 @@ const LandingPage = () => {
   const [error, setError] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -162,7 +164,10 @@ const LandingPage = () => {
 
       // Navigate when video ends
       setTimeout(() => {
-        navigate('/home');
+        setIsTransitioning(true);
+        setTimeout(() => {
+          navigate('/home');
+        }, 500); // Wait for transition to complete
       }, 7000);
     };
 
@@ -203,11 +208,15 @@ const LandingPage = () => {
   };
 
   const handleSkip = () => {
-    navigate('/home');
+    setIsTransitioning(true);
+    setTimeout(() => {
+      navigate('/home');
+    }, 500); // Wait for transition to complete
   };
 
   return (
     <LandingContainer>
+      <PageTransition isActive={isTransitioning} />
       <Logo 
         src="/assets/kardia-logo.jpg" 
         alt="Kardia Logo" 
