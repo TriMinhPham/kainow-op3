@@ -9,8 +9,12 @@ const IntroContainer = styled.section`
   align-items: center;
   text-align: center;
   padding: 6rem 2rem 5rem;
-  background-color: var(--beige-light);
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9)), url('/images/background/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
+  min-height: 100vh;
   
   &::before {
     content: '';
@@ -29,6 +33,7 @@ const IntroTitle = styled.h1`
   margin-bottom: 1.5rem;
   font-weight: 700;
   position: relative;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
   
   &::after {
     content: '';
@@ -48,6 +53,7 @@ const IntroDescription = styled.p`
   max-width: 800px;
   line-height: 1.7;
   margin-bottom: 3rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 `;
 
 const GraphicsContainer = styled.div`
@@ -59,13 +65,14 @@ const GraphicsContainer = styled.div`
 `;
 
 const FeatureCard = styled.div`
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   padding: 2rem 1.5rem;
   width: 250px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid var(--border);
+  backdrop-filter: blur(4px);
   
   &:hover {
     transform: translateY(-8px);

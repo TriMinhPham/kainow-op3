@@ -51,7 +51,7 @@ const StakingNodeCard = styled.div`
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 2.5rem;
+  padding: 2rem;
   width: 400px;
   height: 400px;
   transition: all 0.4s ease;
@@ -80,56 +80,58 @@ const StakingNodeCard = styled.div`
 `;
 
 const NodeTitle = styled.h3`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--green-dark);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-weight: 600;
 `;
 
 const NodeDescription = styled.p`
   color: var(--gray-dark);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
 `;
 
 const StakingDetail = styled.div`
-  margin: 1.2rem 0;
+  margin: 0.8rem 0;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid var(--border);
   
   &:last-of-type {
     border-bottom: none;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.2rem;
   }
 `;
 
 const DetailLabel = styled.span`
   color: var(--text-light);
   font-weight: 400;
+  font-size: 0.9rem;
 `;
 
 const DetailValue = styled.span`
   color: var(--text);
   font-weight: 600;
+  font-size: 0.9rem;
 `;
 
 const StakingActions = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-top: auto;
 `;
 
 const ActionButton = styled.button`
   flex: 1;
-  padding: 0.9rem 0;
+  padding: 0.8rem 0;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 0.95rem;
 `;
 
 const StakeButton = styled(ActionButton)`
