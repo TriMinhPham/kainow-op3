@@ -1,0 +1,143 @@
+{
+  "header": {
+    "title": "KAI Network",
+    "tagline": "Infrastructure for the AI Economy"
+  },
+  "navigation": {
+    "links": [
+      { "name": "Home", "href": "#home" },
+      { "name": "Ecosystem", "href": "#ecosystem" },
+      { "name": "Booster Chip", "href": "#booster" },
+      { "name": "How to Buy", "href": "#how-to-buy" },
+      { "name": "Kardiachain", "href": "https://www.kardiachain.io", "external": true }
+    ],
+    "walletButton": "Connect Wallet"
+  },
+  "intro": {
+    "heading": "Infrastructure for the AI Economy",
+    "description": "Monetize your AI experiments. Today.",
+    "buttonText": "Launch App",
+    "features": [
+      "Seamless on-chain AI integration with KAI",
+      "Proof of Inference backbone for secure computations",
+      "Autonomous AI agents (AIAI) automating complex tasks",
+      "Scalable, decentralized execution for Web3 applications"
+    ]
+  },
+  "featureSection": {
+    "title": "AI Economic Stack",
+    "subtitle": "A comprehensive three-layer architecture powering the future of AI Economy",
+    "stackLayers": [
+      {
+        "title": "Consumer Apps",
+        "type": "Application Layer",
+        "description": "User-facing applications that leverage AI capabilities to deliver innovative experiences and solutions.",
+        "components": [
+          { "name": "AI Garden", "icon": "🌱", "url": "https://garden.aiai.now", "status": "live" },
+          { "name": "SOMA", "icon": "🎯", "url": "https://soma.app", "status": "live" },
+          { "name": "AIAI.NOW", "icon": "⚡", "url": "https://aiai.now", "status": "live" }
+        ],
+        "accentColor": "#FF6B6B",
+        "bgColor": "#FF6B6B"
+      },
+      {
+        "title": "AI Models",
+        "type": "Intelligence Layer",
+        "description": "Advanced AI models and algorithms that power intelligent features across the ecosystem.",
+        "components": [
+          { "name": "Image Generation", "icon": "🎨", "url": "https://image-gen.kai.ai", "status": "live" },
+          { "name": "LLMs", "icon": "🧠", "status": "coming-soon" },
+          { "name": "Video Generation", "icon": "🎬", "status": "coming-soon" },
+          { "name": "Audio Processing", "icon": "🎵", "status": "coming-soon" }
+        ],
+        "accentColor": "#4ECDC4",
+        "bgColor": "#4ECDC4"
+      },
+      {
+        "title": "KAI Blockchain Infrastructure",
+        "type": "Infrastructure Layer",
+        "description": "The foundational blockchain infrastructure that enables secure, scalable, and decentralized AI operations.",
+        "components": [
+          { "name": "Blockchain Explorer", "icon": "🔍", "url": "https://explorer.kai.network", "status": "live" },
+          { "name": "Wallet App", "icon": "💳", "url": "https://wallet.kai.network", "status": "live" },
+          { "name": "Smart Contracts", "icon": "📋", "status": "live" },
+          { "name": "Consensus", "icon": "🤝", "status": "live" },
+          { "name": "Node Network", "icon": "🌐", "status": "live" }
+        ],
+        "accentColor": "#45B7D1",
+        "bgColor": "#45B7D1"
+      }
+    ]
+  },
+  "stakingNodes": [
+    {
+      "id": 1,
+      "name": "Krypto AI NFT Node",
+      "description": "Join the revolutionary AI-powered blockchain infrastructure. With a strictly limited supply, each node processes AI inferences on-chain, supports staking up to 10 million KAI tokens, and earns passive rewards while ensuring operational sustainability.",
+      "apy": "Variable",
+      "minStake": "Up to 10M KAI"
+    },
+    {
+      "id": 2,
+      "name": "Krypto AI Validator Node",
+      "description": "Become a network validator and help secure the Krypto AI ecosystem. Validator nodes participate in consensus, validate AI computations, and earn higher rewards for their crucial role in maintaining network integrity.",
+      "apy": "Variable + Bonus",
+      "minStake": "Up to 20M KAI"
+    }
+  ],
+  "boosterChip": {
+    "name": "Upcoming AI Accelerator",
+    "price": "TBA",
+    "description": "Future developments include expanded GPU inference capabilities, advanced verification frameworks, and AI-governed smart contracts designed to boost your AI-powered applications.",
+    "benefits": [
+      "Enhanced computational power",
+      "Faster AI inference speeds",
+      "Robust security and advanced verification",
+      "Future-proof innovations for decentralized AI"
+    ]
+  },
+  "rewards": {
+    "claimDescription": "Earn dual rewards by participating in AI computations through your NFT node. Rewards are calculated in real-time based on your active contribution within the ecosystem.",
+    "unstakingPeriod": "Subject to a monthly operational fee for continuous reward access",
+    "rewardTypes": [
+      {
+        "id": 1,
+        "token": "KAI",
+        "amount": "1,234.56",
+        "boosterBonus": "69%",
+        "description": "Native token rewards from staking and network participation"
+      },
+      {
+        "id": 2,
+        "token": "AIAI",
+        "amount": "420.69",
+        "boosterBonus": "69%",
+        "description": "Governance token rewards from AI computation contributions"
+      }
+    ]
+  },
+  "footer": {
+    "links": [
+      { "name": "Documentation", "url": "#/docs" },
+      { "name": "Support", "url": "#/support" },
+      { "name": "Privacy Policy", "url": "#/privacy" },
+      { "name": "Terms of Service", "url": "#/terms" }
+    ],
+    "socialMedia": [
+      { "name": "Twitter", "url": "#" },
+      { "name": "Telegram", "url": "#" },
+      { "name": "Discord", "url": "#" }
+    ],
+    "supportLinks": [
+      { "name": "Contact Us", "url": "#/support" },
+      { "name": "Feedback", "url": "#/feedback" },
+      { "name": "Report an Issue", "url": "#/issues" }
+    ],
+    "legalLinks": [
+      { "name": "Terms of Service", "url": "#/terms" },
+      { "name": "Privacy Policy", "url": "#/privacy" },
+      { "name": "Cookie Policy", "url": "#/cookies" }
+    ],
+    "copyright": "© 2025 Krypto AI. All rights reserved."
+  }
+}

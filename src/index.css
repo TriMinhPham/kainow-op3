@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Primary Colors */
+  --primary: #ffffff;
+  --primary-dark: #e6e6e6;
+  --primary-light: #ffffff;
+  
+  /* Accent Colors */
+  --accent: #000000;
+  --accent-dark: #1a1a1a;
+  --accent-light: #333333;
+  
+  /* Background Colors */
+  --background: #ffffff;
+  --background-dark: #f5f5f5;
+  --background-light: #ffffff;
+  
+  /* Text Colors */
+  --text: #000000;
+  --text-light: #666666;
+  --text-dark: #000000;
+  
+  /* Border Colors */
+  --border: #e0e0e0;
+  --border-dark: #cccccc;
+  --border-light: #f0f0f0;
+  
+  /* Status Colors */
+  --success: #000000;
+  --success-light: #333333;
+  --error: #ff0000;
+  --error-light: #ff3333;
+  --warning: #ffcc00;
+  --warning-light: #ffd633;
+  
+  /* Special Colors */
+  --gold: #000000;
+  --gold-dark: #1a1a1a;
+  --gold-light: #333333;
+  --green: #000000;
+  --green-dark: #1a1a1a;
+  --green-light: #333333;
+  --red: #ff0000;
+  --red-dark: #cc0000;
+  --red-light: #ff3333;
+  --earth: #000000;
+  --beige: #f5f5f5;
+  --beige-light: #ffffff;
+  --gray-darkest: #000000;
+  --gray-dark: #333333;
+  --gray-medium: #666666;
+  --gray-light: #f5f5f5;
+  --gray-lighter: #fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* Add glossy effect to elements */
+.glossy {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Add glass effect to elements */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Add metallic effect to elements */
+.metallic {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Add chrome effect to elements */
+.chrome {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
