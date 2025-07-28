@@ -70,7 +70,7 @@ const TokenCard = styled.div`
   transition: all 0.3s ease;
   border-radius: 0;
   
-  /* Grid area assignments - ALL 144 cells filled */
+  /* Grid area assignments - ALL 144 cells filled (scaled up after removing unallocated) */
   ${props => {
     const gridAreas = [
       'grid-column: 1 / 7; grid-row: 1 / 7;',   // 31.02% - Retail Holders (6x6 = 36 cells)
@@ -80,11 +80,10 @@ const TokenCard = styled.div`
       'grid-column: 4 / 7; grid-row: 7 / 10;',  // 7.83% - Team (3x3 = 9 cells)
       'grid-column: 11 / 13; grid-row: 5 / 9;', // 7.56% - Staking (2x4 = 8 cells)
       'grid-column: 4 / 7; grid-row: 10 / 13;', // 4.50% - Discovery Reward (3x3 = 9 cells)
-      'grid-column: 1 / 3; grid-row: 11 / 13;', // 3.20% - Burned (2x2 = 4 cells)
+      'grid-column: 1 / 4; grid-row: 11 / 13;', // 3.20% - Burned (3x2 = 6 cells, expanded)
       'grid-column: 7 / 10; grid-row: 9 / 13;', // 2.39% - HOK (3x4 = 12 cells)
-      'grid-column: 10 / 13; grid-row: 9 / 11;', // 1.52% - DeFi Protocols (3x2 = 6 cells)
-      'grid-column: 3 / 4; grid-row: 11 / 13;', // 1.38% - Unallocated (1x2 = 2 cells)
-      'grid-column: 10 / 13; grid-row: 11 / 13;', // 0.20% - Revenue Aggregator (3x2 = 6 cells)
+      'grid-column: 10 / 13; grid-row: 9 / 12;', // 1.52% - DeFi Protocols (3x3 = 9 cells, expanded)
+      'grid-column: 10 / 13; grid-row: 12 / 13;', // 0.20% - Revenue Aggregator (3x1 = 3 cells, adjusted)
     ];
     return gridAreas[props.$index] || '';
   }}
@@ -226,13 +225,6 @@ const tokenomicsData = [
     percentage: '1.52%',
     title: 'DeFi Protocols',
     description: 'Decentralized finance protocol integrations'
-  },
-  {
-    image: 'unallocated',
-    number: '69,000,000',
-    percentage: '1.38%',
-    title: 'Unallocated',
-    description: 'Reserved for future strategic initiatives'
   },
   {
     image: 'revenue-aggregator',
