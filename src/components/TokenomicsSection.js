@@ -51,7 +51,7 @@ const HoverPercentage = styled.div`
   font-size: clamp(1.5rem, 4vw, 3rem);
   font-weight: 700;
   text-align: center;
-  color: ${props => props.$index % 2 === 0 ? '#000000' : '#ffffff'};
+  color: #ffffff;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;

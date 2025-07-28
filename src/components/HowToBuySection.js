@@ -149,7 +149,7 @@ export const HowToBuySection = () => {
       <ExchangeGrid>
         {exchanges.map((exchange, index) => (
           <ExchangeCard 
-            key={index}
+            key={exchange.name}
             href={exchange.url}
             target="_blank"
             rel="noopener noreferrer"
